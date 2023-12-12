@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const courseSchema = new Schema(
+const lectureSchema = new Schema(
     {
         user_id: { type: Schema.Types.ObjectId, ref: "User" },
         course_id: { type: Schema.Types.ObjectId, ref: "Course" },
@@ -12,4 +12,4 @@ const courseSchema = new Schema(
     }
 );
 
-module.exports = mongoose.model("Course", courseSchema);
+module.exports = mongoose.model("Lecture", lectureSchema);
