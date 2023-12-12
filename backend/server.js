@@ -7,12 +7,12 @@ const routes = require("./routes/api");
 
 const app = express();
 
-app.use(fileUpload());
+app.use(fileUpload({ createParentPath: true }));
 app.use(cookieSession({ keys: ['uid'] }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use("/", routes);
+app.use("/api", routes);
 
 const port = process.env.PORT || 3000;
 
