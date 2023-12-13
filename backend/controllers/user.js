@@ -1,15 +1,16 @@
 const User = require("../database/user");
 
-exports.loginUser = (req, res) => {
+exports.loginUser = async (req, res) => {
     const { email, type, password } = req.body;
-    User.findOne({ email, type, password }, (err, doc) => {
-        if (err) return res.status(500).send({ message: "Something went wrong!" });
-        if (doc.length > 0) {
-            req.session.uid = doc._id;
-            return res.send({ message: "Successfully logged in!" });
-        }
-        return res.status(404).send({ message: "User not found!" });
-    });
+    if(!email || !type || !password ){
+        return res.json({ success: false, message: 'All fields are required' })
+    }
+    let user = await User.findOne({ email, type, password }).exec();
+    if (user) {
+        req.session.uid = user._id;
+        return res.send({ success: true, message: "Successfully logged in!" });
+    }
+    return res.send({ success: false, message: "User not found!" });
 };
 
 exports.logoutUser = (req, res) => {

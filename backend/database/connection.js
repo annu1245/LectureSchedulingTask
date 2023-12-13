@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 //Set up default mongoose connection
 const mongoDbUrl = 'mongodb://127.0.0.1:27017/ProjectTest';
-mongoose.connect(mongoDbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(mongoDbUrl);
 
 //Get the default connection
 const db = mongoose.connection;
