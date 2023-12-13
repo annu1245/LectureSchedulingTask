@@ -1,4 +1,4 @@
-const User = require("../database/user");
+const User = require("database/user");
 
 exports.loginUser = async (req, res) => {
     const { email, type, password } = req.body;
@@ -19,6 +19,6 @@ exports.logoutUser = (req, res) => {
 };
 
 exports.getUsers = async (req, res) => {
-    const users = await User.find({ type: 2 });
+    const users = await User.find({ type: 2 }).exec();
     return res.send({ data: users, message: "Successfully fetched the user" });
 };
