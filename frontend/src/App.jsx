@@ -1,39 +1,22 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import axios from 'axios'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginPage from './pages/login';
+import Layout from './Layout.jsx'
+import CourseAdd from './components/CourseAdd.jsx'
+import Users from './components/Users.jsx'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
-  const [jokes, setJokes] = useState([])
-
-  useEffect(() => {
-    axios.get('/api/jokes')
-    .then((response) => {
-      setJokes(response.data)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  })
-
   return (
-    <>
-     <h1>Jokes</h1>
-     <p>{jokes.length}</p>
-
-     {
-      jokes.map((joke) => {
-        return (
-        <div key={joke.id}>
-          <h3>{joke.title}</h3>
-          <p>{joke.content}</p>
-        </div>
-        )
-      })
-     }
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path='course/add' element={<CourseAdd />} />
+        <Route path='users' element={<Users />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App

@@ -1,7 +1,7 @@
 // MyForm.js
 import React, { useState } from 'react';
 
-const Form = () => {
+const CourseAdd = () => {
   const [formData, setFormData] = useState({
     name: '',
     level: '',
@@ -107,4 +107,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default CourseAdd;
