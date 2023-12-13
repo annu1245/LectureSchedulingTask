@@ -4,7 +4,7 @@ import LoginPage from './pages/login';
 import Layout from './Layout.jsx'
 import Form from './pages/courseForm.jsx';
 import CourseAdd from './components/CourseAdd.jsx'
-import Users from './components/Users.jsx'
+import Users from './pages/users.jsx'
 import 'react-toastify/dist/ReactToastify.css'
 import AssignLectures from './pages/assignLectures.jsx';
 
@@ -16,7 +16,7 @@ function App() {
         <Route path="login" element={<LoginPage />} />
         <Route path="form" element={<Form/>}/>
         <Route path='course/add' element={<CourseAdd />} />
-        <Route path='lectures' element={<AssignLectures/>}/>
+        <Route path='lectures/add/:user_id' element={<AssignLectures/>}/>
         <Route path='users' element={<Users />} />
       </Routes>
     </BrowserRouter>

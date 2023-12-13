@@ -1,5 +1,5 @@
 // MyForm.js
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const CourseAdd = () => {
   const [formData, setFormData] = useState({
@@ -58,7 +58,7 @@ const CourseAdd = () => {
             Level
           </label>
           <input
-            type="text"
+            type="number"
             id="level"
             name="level"
             value={formData.level}
