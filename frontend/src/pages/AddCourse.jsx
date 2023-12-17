@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
-function Form() {
+function AddCourse() {
     const navigate = useNavigate();
     const [inputValue, setInputValue] = useState({
         courseName: "",
@@ -55,7 +55,7 @@ function Form() {
             if (success) {
                 handleSuccess(message);
                 setTimeout(() => {
-                    navigate("#");
+                    navigate("/");
                 }, 1000);
             } else {
                 handleError(message);
@@ -118,4 +118,4 @@ function Form() {
     );
 }
 
-export default Form;
+export default AddCourse;

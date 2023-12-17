@@ -4,8 +4,10 @@ const fileUpload = require('express-fileupload');
 require('./database/connection.js');
 var bodyParser = require('body-parser');
 const routes = require("./routes/api");
+const path = require('path');
 
 const app = express();
+app.use(express.static('assets'));
 
 app.use(fileUpload({ createParentPath: true }));
 app.use(cookieSession({ keys: ['uid'] }));

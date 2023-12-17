@@ -7,7 +7,7 @@ exports.addCourse = async (req, res) => {
         return res.status(400).send('No files were uploaded.');
     }
     image = req.files.image;
-    const file_path = path.join("assets", "uploads", new Date().getTime().toString() + '_' + image.name);
+    const file_path = path.posix.join("assets", "uploads", new Date().getTime().toString() + '_' + image.name);
     const uploadPath = path.join(__dirname, "..", file_path);
 
     try {
@@ -27,3 +27,8 @@ exports.getCourses = async (req, res) => {
     const courses = await Course.find({}).exec();
     return res.send({ data: courses, message: "Successfully fetched the courses" });
 };
+
+
+
+
+
