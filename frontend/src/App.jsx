@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import LoginPage from "./pages/login";
 import AddCourse from "./pages/AddCourse.jsx";
 import Users from "./pages/users.jsx";
@@ -38,7 +38,7 @@ function App() {
                 <Route path="/" element={<ShowCourses />} />
                 <Route path='/show' element={<ShowScheduledLectures />} />
                 </>
-                : null
+                : <Route path="/" element={<LoginPage />} />
            : 
             <Route path="/login" element={<LoginPage />} />
           }  
